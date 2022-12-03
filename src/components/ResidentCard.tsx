@@ -28,7 +28,6 @@ const ResidentCard = ({ url }: ResidentCardProps) => {
       .then((res) => setResident(res.data))
       .catch((err) => console.log(err));
   };
-  console.log(resident);
   
   return (
     <article>
