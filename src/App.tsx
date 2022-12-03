@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
+import ErrorFetch from "./components/ErrorFetch";
 import LocationInfo from "./components/LocationInfo";
 import ResidentCard from "./components/ResidentCard";
 
@@ -12,12 +13,13 @@ interface Location {
   residents: string[];
 }
 function App() {
-  const [location, setLocation] = useState<Location>();
+  const [location, setLocation] = useState<Location | null>(null);
   const [locationNumer, setLocationNumer] = useState<string>();
+  const [hasError, setHasError] = useState(false);
   useEffect(() => {
-    let URL:string
+    let URL: string;
     if (locationNumer) {
-      URL=`https://rickandmortyapi.com/api/location/${locationNumer}`
+      URL = `https://rickandmortyapi.com/api/location/${locationNumer}`;
     } else {
       const randomLocation = Math.floor(Math.random() * 126) + 1;
       URL = `https://rickandmortyapi.com/api/location/${randomLocation}`;
@@ -28,14 +30,17 @@ function App() {
   const getData = (URL: string): void => {
     axios
       .get(URL)
-      .then((res) => setLocation(res.data))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        setHasError(false);
+        setLocation(res.data);
+      })
+      .catch(() => setHasError(true));
   };
-  // console.log(location?.residents);
   const inputValue = useRef<HTMLInputElement>(null);
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLocation()
+    if (!inputValue.current?.value) return;
+    setLocation(null);
     setLocationNumer(inputValue.current?.value);
   };
 
@@ -46,10 +51,16 @@ function App() {
         <input ref={inputValue} type="text" />
         <button>Search</button>
       </form>
-      {location ? <LocationInfo location={location} /> : <p>Loading...</p>}
-      {location?.residents.map((url) => (
-        <ResidentCard key={url} url={url} />
-      ))}
+      {hasError ? (
+        <ErrorFetch />
+      ) : (
+        <>
+          {location ? <LocationInfo location={location} /> : <p>Loading...</p>}
+          {location?.residents.map((url) => (
+            <ResidentCard key={url} url={url} />
+          ))}
+        </>
+      )}
     </div>
   );
 }
