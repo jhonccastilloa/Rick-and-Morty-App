@@ -1,0 +1,22 @@
+.sections__cards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
+  padding-top: 20px;
+}
+.container{
+  width: 90%;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+.section__location-info{
+  background-color: #062226;
+  padding: 25px;
+  border-radius: 25px;
+  color: white;
+  border: 3px solid #083f47;
+}
+.location__search{
+  margin-bottom: 15px;
+}

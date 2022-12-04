@@ -8,6 +8,7 @@ import React, {
 } from "react";
 import useFetchLocationSearch from "../hooks/useFetchLocationSearch";
 import { Location } from "../interfaces/Types";
+import './styles/locationSearch.css'
 
 interface LocationSearchProps {
   setLocationValue: (value: string) => void;
@@ -19,8 +20,8 @@ const LocationSearch = ({
 }: LocationSearchProps) => {
   const [nameValueLocation, setNameValueLocation] = useState<string>("");
   const inputValue = useRef<HTMLInputElement>(null);
-  const dimensionName=useFetchLocationSearch()
-  
+  const dimensionName = useFetchLocationSearch();
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const locationValue = inputValue.current?.value;
@@ -37,14 +38,15 @@ const LocationSearch = ({
     setNameValueLocation(value);
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+    <form className="form__search" onSubmit={handleSubmit}>
+      <input className="form__input"
         ref={inputValue}
         value={nameValueLocation}
         type="text"
         onChange={handleChangeNameValue}
+        placeholder="type a location name"
       />
-      <button>Search</button>
+      <button className="form__button ">Search</button>
       {nameValueLocation && (
         <ul>
           {dimensionName
