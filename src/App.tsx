@@ -59,7 +59,8 @@ function App() {
     setHasError(false);
     setLocationValue("");
   };
-
+  console.log(location);
+  
   return (
     <div className="App">
       <header className="header container">

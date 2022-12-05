@@ -21,14 +21,17 @@
 
 }
 
-.pagination--active{
-  background-color: white;
-  color: #062226;
-}
+
 .pagination__link{
   display: block;
   padding: 8px 16px;
 }
+
 .pagination__link:visited{
   color: inherit;
+}
+
+.pagination--active{
+  background-color: white;
+  color: #062226;
 }

@@ -27,11 +27,11 @@ const ResidentCard = ({ url }: ResidentCardProps) => {
       .then((res) => setResident(res.data))
       .catch((err) => console.log(err));
   };
-
+  
   return (
     <div className="card__container ">
       <header className="card__header">
-        <img className="card__image" src={resident?.image} alt="" />
+        <img className="card__image" src={resident?.image} alt={resident?.name} />
         <div className="card__circle-info">
           <div className={`card__circle ${resident?.status}`}></div>
           <span className="card__text">{resident?.status}</span>

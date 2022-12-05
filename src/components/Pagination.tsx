@@ -35,7 +35,6 @@ const Pagination = ({
             onClick={() => setStatePagination(i)}
           >
             <a href="#cards" className="pagination__link">
-              {" "}
               {el}
             </a>
           </li>
