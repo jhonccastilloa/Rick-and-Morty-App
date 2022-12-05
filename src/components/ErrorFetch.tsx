@@ -1,9 +1,20 @@
-import React from 'react'
+import "./styles/errorFetch.css";
 
-const ErrorFetch = () => {
-  return (
-    <h1>❌ Solo debes ingresar numero desde el 1 al 126 ❌</h1>
-  )
+interface ErrorFetchProps {
+  errorReload: () => void;
 }
+const ErrorFetch = ({ errorReload }: ErrorFetchProps) => {
+  return (
+    <div className="error container">
+      <h2 className="error__title">! Error when querying the location ¡</h2>
+      <h3 className="error__subtitle">
+        Make sure you have spelled the location correctly
+      </h3>
+      <button onClick={errorReload} className="error__button">
+        RELOAD
+      </button>
+    </div>
+  );
+};
 
-export default ErrorFetch
+export default ErrorFetch;

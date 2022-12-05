@@ -1,0 +1,31 @@
+.error{
+  background-color: #fff3cd;
+  padding: 25px;
+  border-radius: 25px;
+  color: #856404;
+  border: 3px solid #083f47;
+}
+
+.error__title{
+  text-align: center;
+}
+.error__subtitle{
+  text-align: center;
+}
+.error__button{
+  display: block;
+  padding: 9px;
+  font-size: 1rem;
+  width: 50%;
+  max-width: 200px;
+  border-radius: 9px;
+  text-align: center;
+  font-weight: 600;
+  background-color: #062226;
+  border: 3px solid #062226;
+  color: white;
+  margin: 20px auto;
+}
+.error__button:hover{
+  box-shadow: 0 0 12px 1px rgba(0, 0, 0, 0.801);
+}

@@ -1,20 +1,60 @@
-.form__search{
- width: 100%;
- display: flex;
- justify-content: center;
+.form__search {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.form__search-container {
+  width: 100%;
+  max-width: 500px;
+  position: relative;
 }
 .form__input {
   padding: 15px;
   width: 100%;
-  max-width: 500px;
   font-size: 1.3rem;
   border-radius: 9px 0 0 9px;
   text-align: center;
   font-weight: 600;
   background-color: #fff;
   border: 3px solid #062226;
-  border-right: none;
   color: #062226;
+}
+.form__list {
+  max-height: 39vh;
+  overflow-y: auto;
+  position: absolute;
+  top: 45px;
+  z-index: 1;
+  background-color: white;
+  width: 100%;
+  max-width: 550px;
+  border: 3px solid #062226;
+  padding: 15px;
+  font-size: 1.1rem;
+  color: #062226;
+  border-collapse: collapse;
+  border-radius: 0 0 9px 9px;
+}
+.form__list::-webkit-scrollbar {
+  width: 1em;
+}
+
+.form__list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 0 0 9px 0;
+}
+
+.form__list::-webkit-scrollbar-thumb {
+  background-color: #062226;
+  outline: 1px solid slategrey;
+  border-radius: 0 9px 9px 0;
+}
+.form__item {
+  border-bottom: 2px solid #062226;
+  padding-top: 5px;
+  padding-left: 5px;
+  border-collapse: collapse;
+  cursor: pointer;
 }
 .form__input:focus-visible {
   outline: none;
@@ -38,4 +78,13 @@
 }
 .form__button:hover {
   box-shadow: 0 0 12px 1px rgba(255, 255, 255, 0.801);
+}
+
+@media (max-width: 768px) {
+  .form__input {
+    font-size: 1rem;
+  }
+  .form__button {
+    font-size: 1rem;
+  }
 }
