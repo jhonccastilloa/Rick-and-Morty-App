@@ -106,7 +106,7 @@ function App() {
             <Loader />
           </section>
         )}
-        {numPagination.length && (
+        {(numPagination.length != 0) && (
           <section className="section__pagination container">
             <Pagination
               numPagination={numPagination}
